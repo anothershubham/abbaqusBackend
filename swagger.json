@@ -1,0 +1,238 @@
+  
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Yet Another Node.js Blogg Application API",
+      "description": "Yet Another Node.js Blogg Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/signup": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/users/{userId}": {
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "ID of user that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Get user with given ID",
+          "responses": {
+            "200": {
+              "description": "User is found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete user with given ID",
+          "tags": [
+            "Users"
+          ],
+          "responses": {
+            "200": {
+              "description": "User is deleted",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update user with give ID",
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User is updated",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/login": {
+        "parameters": [
+          {
+            "email_id": "email_id",
+            "type": "string"
+          },
+          {
+            "email_id": "login_password",
+            "type": "string"
+          }
+        ],
+        "post": {
+          "summary": "Update user with give ID",
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/login"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User is updated",
+              "schema": {
+                "$ref": "#/definitions/login"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "User": {
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Hello"
+          },
+          "email": {
+            "type": "string",
+            "example": "hello@gmail.com"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "last"
+          },
+          "password": {
+            "type": "string",
+            "example": "password"
+          },
+          "role": {
+            "type": "string",
+            "exmaple":"role"
+          },
+          "designation": {
+            "type": "string",
+            "example":"desig"
+          },
+          "university": {
+            "type": "string",
+            "example": "VTU"
+          },
+          "industry": {
+            "type": "string",
+            "example":"IT"
+          },
+          "degree": {
+            "type": "string",
+            "exmaple": "BE"
+          },
+          "other": {
+            "type": "string",
+            "example": "CS"
+          },
+          "OtherDesignation": {
+            "type": "string",
+            "example": "ISE"
+          },
+          "dob": {
+            "type": "string",
+            "example": "2020-01-24T21:52:57.011Z"
+          },
+          "location": {
+            "type": "string",
+            "example":"Bangalore"
+          },
+          "organization": {
+            "type": "string",
+            "example": "Anything"
+          }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      },
+      "login": {
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "example": "hello@gmail.com"
+          },
+          "login_password": {
+            "type": "string",
+            "example": "password"
+          }
+        }
+      }
+    }
+  }
