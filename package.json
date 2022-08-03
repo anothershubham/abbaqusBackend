@@ -31,7 +31,7 @@
         "lodash-node": "^3.10.2",
         "lodash.groupby": "^4.6.0",
         "logger": "0.0.1",
-        "metascraper": "^4.9.0",
+        "metascraper": "^5.2.0",
         "metascraper-image": "^4.9.0",
         "moment": "^2.22.1",
         "mongoosastic": "^4.4.1",
